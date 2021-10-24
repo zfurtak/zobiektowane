@@ -1,25 +1,17 @@
 package agh.ics.oop;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Objects;
 
 import static java.lang.System.out;
 
-public class World2 {
-    public static void main(String[] args){
+public class Vector2d {
+    public static void main(String[] args) {
         out.println("Start");
-        Vector2d position1 = new Vector2d(1,2);
-        Vector2d position2 = new Vector2d(-2,1);
+        Vector2d position1 = new Vector2d(1, 2);
+        Vector2d position2 = new Vector2d(-2, 1);
         position1.princik(position1);
         position1.princik(position2);
         position1.princik(position1.add(position2));
-        //System.out.print("("+position1.x+", "+position1.y+") ");
         out.println("Stop");
-
     }
-}
-
-class Vector2d {
     public int x;
     public int y;
     public Vector2d(int x, int y){
@@ -56,7 +48,6 @@ class Vector2d {
     public Vector2d subtract(Vector2d vec){
         return new Vector2d(this.x-vec.x, this.y-vec.y);
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -67,7 +58,5 @@ class Vector2d {
     public Vector2d opposite(){
         return new Vector2d((-1)*this.x, (-1)*this.y);
     }
-
-
 }
 
