@@ -18,6 +18,7 @@ public class Vector2d {
         this.x = x;
         this.y = y;
     }
+
     public String to_String(){ return "(" + this.x + "," + this.y + ")";}
     public void princik(Vector2d vector){
         out.println("("+vector.x+", "+vector.y+")");
@@ -45,6 +46,7 @@ public class Vector2d {
     public Vector2d add(Vector2d vec){
         return new Vector2d(this.x+vec.x, this.y+vec.y);
     }
+
     public Vector2d subtract(Vector2d vec){
         return new Vector2d(this.x-vec.x, this.y-vec.y);
     }

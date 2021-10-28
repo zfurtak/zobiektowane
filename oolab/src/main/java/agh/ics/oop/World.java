@@ -1,14 +1,22 @@
 package agh.ics.oop;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.Objects;
 
 import static java.lang.System.out;
 
 public class World {
     public static void main(String[] args){
         out.println("Start");
-        run(toEnum(args));
+        Animal Stanley = new Animal();
+        out.println(Stanley.toString());
+        ArrayList<MoveDirection> kierunki = new ArrayList<MoveDirection>(OptionsParser.parse(args));
+        for (MoveDirection arg : kierunki) {
+            Stanley.move(arg);
+        }
+        out.println(Stanley.toString());
         out.println("Stop");
+
     }
     public static ArrayList<Direction> toEnum(String [] args){
         ArrayList<Direction> lista = new ArrayList<Direction>();
@@ -32,3 +40,4 @@ public class World {
     }
 
 }
+
