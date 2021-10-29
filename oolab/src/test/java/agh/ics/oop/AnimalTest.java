@@ -13,10 +13,6 @@ public class AnimalTest {
     void everythingTest(){
         String[] lista = new String[] {"f", "f", "r"};
         ArrayList<MoveDirection> kierunki = new ArrayList<MoveDirection>(OptionsParser.parse(lista));
-        ArrayList<MoveDirection> testowa = new ArrayList<MoveDirection>();
-        testowa.add(MoveDirection.FORWARD);
-        testowa.add(MoveDirection.FORWARD);
-        testowa.add(MoveDirection.RIGHT);
         for(MoveDirection arg : kierunki){Bob.move(arg);}
         assertEquals(2, Bob.getPosition().x);
         assertEquals(4, Bob.getPosition().y);
@@ -24,12 +20,6 @@ public class AnimalTest {
 
         String[] lista1 = new String[] {"b", "b", "b", "l", "f"};
         ArrayList<MoveDirection> kierunki1 = new ArrayList<MoveDirection>(OptionsParser.parse(lista1));
-        ArrayList<MoveDirection> expected_dir = new ArrayList<MoveDirection>();
-        expected_dir.add(MoveDirection.BACKWARD);
-        expected_dir.add(MoveDirection.BACKWARD);
-        expected_dir.add(MoveDirection.BACKWARD);
-        expected_dir.add(MoveDirection.LEFT);
-        expected_dir.add(MoveDirection.FORWARD);
         for(MoveDirection arg : kierunki1){Mike.move(arg);}
         assertEquals(1, Mike.getPosition().x);
         assertEquals(0, Mike.getPosition().y);
