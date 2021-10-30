@@ -11,19 +11,19 @@ public class AnimalTest {
     Animal Mike = new Animal();
     @Test
     void everythingTest(){
-        String[] lista = new String[] {"f", "f", "r"};
+        String[] lista = new String[] {"f", "forward", "right", "r", "terefere"};
         ArrayList<MoveDirection> kierunki = new ArrayList<MoveDirection>(OptionsParser.parse(lista));
         for(MoveDirection arg : kierunki){Bob.move(arg);}
         assertEquals(2, Bob.getPosition().x);
         assertEquals(4, Bob.getPosition().y);
-        assertEquals(MapDirection.EAST, Bob.getOrient());
+        assertEquals(MapDirection.SOUTH, Bob.getOrient());
 
-        String[] lista1 = new String[] {"b", "b", "b", "l", "f"};
+        String[] lista1 = new String[] {"b", "b", "backward", "l", "f", "l"};
         ArrayList<MoveDirection> kierunki1 = new ArrayList<MoveDirection>(OptionsParser.parse(lista1));
         for(MoveDirection arg : kierunki1){Mike.move(arg);}
         assertEquals(1, Mike.getPosition().x);
         assertEquals(0, Mike.getPosition().y);
-        assertEquals(MapDirection.WEST, Mike.getOrient());
+        assertEquals(MapDirection.SOUTH, Mike.getOrient());
 
     }
 }
