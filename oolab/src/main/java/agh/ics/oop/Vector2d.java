@@ -12,8 +12,8 @@ public class Vector2d {
         position1.princik(position1.add(position2));
         out.println("Stop");
     }
-    public int x;
-    public int y;
+    public final int x;
+    public final int y;
     public Vector2d(int x, int y){
         this.x = x;
         this.y = y;

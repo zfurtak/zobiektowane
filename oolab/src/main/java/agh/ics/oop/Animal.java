@@ -20,27 +20,27 @@ public class Animal {
         }
         if (direction.equals(MoveDirection.FORWARD)){
             switch (this.orient) {
-                case SOUTH -> this.position.y -= 1;
-                case NORTH -> this.position.y += 1;
-                case EAST -> this.position.x += 1;
-                case WEST -> this.position.x -= 1;
+                case SOUTH -> this.position = this.position.subtract(new Vector2d(0,1));
+                case NORTH -> this.position = this.position.add(new Vector2d(0, 1));
+                case EAST -> this.position = this.position.add(new Vector2d(1,0));
+                case WEST -> this.position = this.position.subtract(new Vector2d(1,0));
             }
         } else if(direction.equals(MoveDirection.BACKWARD)){
             switch (this.orient) {
-                case SOUTH -> this.position.y += 1;
-                case NORTH -> this.position.y -= 1;
-                case EAST -> this.position.x -= 1;
-                case WEST -> this.position.x += 1;
+                case SOUTH -> this.position = this.position.add(new Vector2d(0, 1));
+                case NORTH -> this.position = this.position.subtract(new Vector2d(0,1));
+                case EAST -> this.position = this.position.subtract(new Vector2d(1,0));
+                case WEST -> this.position = this.position.add(new Vector2d(1,0));
             }
         }
-        if (this.position.x >= rozmiar){ this.position.x -= 1;
+        if (this.position.x >= rozmiar){ this.position = this.position.subtract(new Vector2d(1,0));
         } else if (this.position.x < 0){
-            this.position.x += 1;
+            this.position = this.position.add(new Vector2d(1,0));
         }
         if (this.position.y >= rozmiar){
-            this.position.y -= 1;
+            this.position = this.position.subtract(new Vector2d(0,1));
         } else if (this.position.y < 0){
-            this.position.y += 1;
+            this.position = this.position.add(new Vector2d(0, 1));
         }
 
     }
