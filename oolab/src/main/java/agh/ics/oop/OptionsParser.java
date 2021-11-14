@@ -11,17 +11,17 @@ public class OptionsParser {
             };
         }
         MoveDirection[] result = new MoveDirection[length];
-        int ind = 0;
+        int i = 0;
         for (String arg : args) {
             switch (arg) {
                 case "forward", "f" -> {
-                    result[ind] = (MoveDirection.FORWARD); ind++; }
+                    result[i] = (MoveDirection.FORWARD); i++; }
                 case "right", "r" -> {
-                    result[ind] = (MoveDirection.RIGHT); ind++; }
+                    result[i] = (MoveDirection.RIGHT); i++; }
                 case "backward", "b" -> {
-                    result[ind] = (MoveDirection.BACKWARD); ind++; }
+                    result[i] = (MoveDirection.BACKWARD); i++; }
                 case "left", "l" -> {
-                    result[ind] = (MoveDirection.LEFT); ind++; }
+                    result[i] = (MoveDirection.LEFT); i++; }
             }
         }
         return result;

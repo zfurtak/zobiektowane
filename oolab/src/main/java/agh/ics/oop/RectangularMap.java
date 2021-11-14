@@ -8,6 +8,7 @@ public class RectangularMap implements IWorldMap{
     private ArrayList<Animal> animals;
 
     public RectangularMap(int width, int heigth){
+        this.animals = new ArrayList<>();
         this.right_up_corner = new Vector2d(width-1, heigth -1);
     }
 

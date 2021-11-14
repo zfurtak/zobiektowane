@@ -9,7 +9,7 @@ public class SimulationEngine implements IEngine{
 
     public SimulationEngine(MoveDirection[] moves, IWorldMap map, Vector2d[] animalPositions){
         this.moves = moves;
-        this.animals = new ArrayList<Animal>();
+        this.animals = new ArrayList<>();
         this.map = map;
         for (Vector2d position : animalPositions){
             Animal animal = new Animal(map, position);
