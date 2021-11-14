@@ -8,15 +8,12 @@ import static java.lang.System.out;
 public class World {
     public static void main(String[] args){
         out.println("Start");
-        Animal Stanley = new Animal();
-        out.println(Stanley.toString());
-        ArrayList<MoveDirection> kierunki = new ArrayList<MoveDirection>(OptionsParser.parse(args));
-        for (MoveDirection arg : kierunki) {
-            Stanley.move(arg);
-        }
-        out.println(Stanley.toString());
+        MoveDirection[] directions =new OptionsParser().parse(args);
+        IWorldMap map = new RectangularMap(10, 5);
+        Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4) };
+        IEngine engine = new SimulationEngine(directions, map, positions);
+        engine.run();
         out.println("Stop");
-
     }
     public static ArrayList<Direction> toEnum(String [] args){
         ArrayList<Direction> lista = new ArrayList<Direction>();

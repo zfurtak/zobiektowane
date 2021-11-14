@@ -1,4 +1,4 @@
-package agh.ics.oop;
+/* package agh.ics.oop;
 
 import org.junit.jupiter.api.Test;
 
@@ -12,14 +12,14 @@ public class AnimalTest {
     @Test
     void everythingTest(){
         String[] lista = new String[] {"f", "forward", "right", "r", "terefere"};
-        ArrayList<MoveDirection> kierunki = new ArrayList<MoveDirection>(OptionsParser.parse(lista));
+        MoveDirection[] kierunki = new OptionsParser().parse(lista);
         for(MoveDirection arg : kierunki){Bob.move(arg);}
         assertEquals(2, Bob.getPosition().x);
         assertEquals(4, Bob.getPosition().y);
         assertEquals(MapDirection.SOUTH, Bob.getOrient());
 
         String[] lista1 = new String[] {"b", "b", "backward", "l", "f", "l"};
-        ArrayList<MoveDirection> kierunki1 = new ArrayList<MoveDirection>(OptionsParser.parse(lista1));
+        MoveDirection[] kierunki1 = new OptionsParser().parse(lista1));
         for(MoveDirection arg : kierunki1){Mike.move(arg);}
         assertEquals(1, Mike.getPosition().x);
         assertEquals(0, Mike.getPosition().y);
@@ -27,3 +27,4 @@ public class AnimalTest {
 
     }
 }
+*/

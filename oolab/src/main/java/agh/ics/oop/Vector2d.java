@@ -3,15 +3,6 @@ package agh.ics.oop;
 import static java.lang.System.out;
 
 public class Vector2d {
-    public static void main(String[] args) {
-        out.println("Start");
-        Vector2d position1 = new Vector2d(1, 2);
-        Vector2d position2 = new Vector2d(-2, 1);
-        position1.princik(position1);
-        position1.princik(position2);
-        position1.princik(position1.add(position2));
-        out.println("Stop");
-    }
     public final int x;
     public final int y;
     public Vector2d(int x, int y){
