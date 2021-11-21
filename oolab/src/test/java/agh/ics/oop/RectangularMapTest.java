@@ -18,11 +18,16 @@ public class RectangularMapTest {
 
         assertTrue(field1.canMoveTo(new Vector2d(1,1)));
         assertTrue(field1.canMoveTo(new Vector2d(1,0)));
-        assertTrue(field1.canMoveTo(new Vector2d(-1,-1)));
         assertTrue(field1.canMoveTo(new Vector2d(2,3)));
 
+        //wchodzenie na drugiego zwierzaka
         assertFalse(field1.canMoveTo(new Vector2d(0,0)));
         assertFalse(field1.canMoveTo(new Vector2d(2,2)));
+
+        //wychodzenie poza mapę
+        assertFalse(field1.canMoveTo(new Vector2d(-1,-1)));
+        assertFalse(field1.canMoveTo(new Vector2d(15,21)));
+        assertFalse(field1.canMoveTo(new Vector2d(20,20)));
 
         jim.move(MoveDirection.FORWARD);
         jim.move(MoveDirection.FORWARD);
