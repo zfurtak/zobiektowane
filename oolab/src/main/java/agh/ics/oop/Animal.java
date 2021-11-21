@@ -16,7 +16,7 @@ public class Animal{
 
 
     public String toString(){
-        return "[" + "(" + this.position.x + ", " + this.position.y + ")" + "; " + this.orient.shortString() + "]";
+        return this.orient.shortString();
     }
     public Vector2d getPosition() {
         return this.position;
@@ -24,6 +24,10 @@ public class Animal{
 
     public MapDirection getOrient() {
         return this.orient;
+    }
+
+    public boolean isAt(Vector2d pos) {
+        return this.position.equals(pos);
     }
 
     public void move(MoveDirection direction){
