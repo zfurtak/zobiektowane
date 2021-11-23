@@ -10,6 +10,7 @@ public class RectangularMap extends AbstractWorldMap{
         this.rightUpCorner = new Vector2d(width-1, heigth -1);
     }
 
+
     @Override
     public boolean canMoveTo(Vector2d position1){
         boolean x = super.canMoveTo(position1);

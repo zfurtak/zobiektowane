@@ -1,5 +1,7 @@
 package agh.ics.oop;
 
+import java.util.Objects;
+
 import static java.lang.System.out;
 
 public class Vector2d {
@@ -10,10 +12,11 @@ public class Vector2d {
         this.y = y;
     }
 
-    public String to_String(){ return "(" + this.x + "," + this.y + ")";}
-    public void princik(Vector2d vector){
-        out.println("("+vector.x+", "+vector.y+")");
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.x, this.y);
     }
+    public String to_String(){ return "(" + this.x + "," + this.y + ")";}
     public boolean precedes(Vector2d vec){ return vec.x >= this.x && vec.y >= this.y; }
     public boolean follows(Vector2d vec){ return vec.x <= this.x && vec.y <= this.y; }
     public Vector2d upperRight(Vector2d vec){
