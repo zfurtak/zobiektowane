@@ -6,8 +6,8 @@ public class RectangularMap extends AbstractWorldMap{
     private final Vector2d rightUpCorner;
     private final Vector2d leftDownCorner = new Vector2d(0,0);
 
-    public RectangularMap(int width, int heigth){
-        this.rightUpCorner = new Vector2d(width-1, heigth -1);
+    public RectangularMap(int width, int height){
+        this.rightUpCorner = new Vector2d(width-1, height -1);
     }
 
 

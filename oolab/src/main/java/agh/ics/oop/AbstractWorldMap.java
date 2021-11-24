@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 
 
 abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObserver{
-    protected LinkedHashMap<Vector2d, Animal> animals = new LinkedHashMap<>();
+    protected LinkedHashMap<Vector2d, AbstractWorldMapElement> natures = new LinkedHashMap<>();
 
     abstract Vector2d findingUpperCorner();
 
@@ -16,9 +16,9 @@ abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObserver{
     }
 
     public void positionChanged(Vector2d oldPosition, Vector2d newPosition){
-        Animal jim = this.animals.get(oldPosition);
-        this.animals.remove(oldPosition);
-        this.animals.put(newPosition, jim);
+        AbstractWorldMapElement jim = this.natures.get(oldPosition);
+        this.natures.remove(oldPosition);
+        this.natures.put(newPosition, jim);
     }
 
     public boolean canMoveTo(Vector2d position) {
@@ -26,19 +26,22 @@ abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObserver{
     }
 
 
+
     public boolean place(Animal animal) {
         if (canMoveTo(animal.getPosition())) {
-            this.animals.put(animal.getPosition(), animal);
+            this.natures.put(animal.getPosition(), animal);
+            animal.addObserver(this);
             return true;
         }
         return false;
     }
 
     public boolean isOccupied(Vector2d position) {
-        return animals.get(position) != null;
+        return natures.get(position) != null;
     }
 
+
     public Object objectAt(Vector2d position) {
-        return animals.get(position);
+        return natures.get(position);
     }
 }

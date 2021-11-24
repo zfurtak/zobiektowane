@@ -5,35 +5,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observer;
 
-public class Animal{
-    private Vector2d position;
+public class Animal extends AbstractWorldMapElement{
     private MapDirection orient = MapDirection.NORTH;
     private final AbstractWorldMap map;
     private final List<IPositionChangeObserver> observers = new ArrayList<>();
 
-    public Animal(AbstractWorldMap map) {
-        this.map = map;
-    }
 
     public Animal(AbstractWorldMap map, Vector2d initialPosition) {
         this.position = initialPosition;
         this.map = map;
     }
 
-
     public String toString(){
         return this.orient.shortString();
-    }
-    public Vector2d getPosition() {
-        return this.position;
     }
 
     public MapDirection getOrient() {
         return this.orient;
-    }
-
-    public boolean isAt(Vector2d pos) {
-        return this.position.equals(pos);
     }
 
     public void move(MoveDirection direction){
@@ -62,15 +50,5 @@ public class Animal{
 
     void removeObserver(IPositionChangeObserver observer){
         observers.remove(observer);
-    }
-
-    public void notifyObservers(){
-        for(IPositionChangeObserver observer: this.observers){
-            observer.update();
-        }
-    }
-
-    public void update(){
-        System.out.println(map);
     }
 }

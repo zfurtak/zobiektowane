@@ -25,9 +25,9 @@ public class SimulationEngine implements IEngine{
         int animalsSize = this.animals.size();
         for (int i = 0; i < movesLength; i++){
             int animalID = i % animalsSize;
-            Animal animal = (Animal) this.animals.get(animalID);
+            Animal animal = this.animals.get(animalID);
             animal.move(this.moves[i]);
-            //System.out.println(map);
+            System.out.println(map);
         }
     }
 }
