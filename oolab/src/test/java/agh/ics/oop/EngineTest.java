@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EngineTest {
-    private final IWorldMap map = new RectangularMap(5, 5);
+    private final AbstractWorldMap map = new RectangularMap(5, 5);
 
     @Test
     public void engineTest1() {

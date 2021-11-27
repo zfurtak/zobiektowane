@@ -55,6 +55,5 @@ public class GrassField extends AbstractWorldMap {
         }
         return leftDownCorner;
     }
-
 }
 
