@@ -4,12 +4,9 @@ import java.util.LinkedHashMap;
 
 
 public class GrassField extends AbstractWorldMap {
-    private final int grassAmount;
 
     public GrassField(int x){
-        this.grassAmount = x;
-        placeGrass(this.grassAmount);
-
+        placeGrass(x);
     }
 
     public void placeGrass(int amount) {
@@ -24,8 +21,10 @@ public class GrassField extends AbstractWorldMap {
                 y = (int) (Math.random() * Math.sqrt(amount * 10));
                 grassPosition = new Vector2d(x, y);
             }
-            Grass kepka = new Grass(grassPosition);
-            natures.put(grassPosition, kepka);
+            Grass kempka = new Grass(grassPosition);
+            natures.put(grassPosition, kempka);
+            boundaryMap.positionChanged(new Vector2d(0, 0), grassPosition);
+            kempka.addObserver(boundaryMap);
         }
     }
 

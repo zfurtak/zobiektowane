@@ -3,18 +3,25 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Objects;
 
-import static java.lang.System.out;
+import static java.lang.System.*;
 
 public class World {
     public static void main(String[] args){
-        out.println("Start");
-        MoveDirection[] directions = OptionsParser.parse(args);
-        AbstractWorldMap map = new GrassField(10);
-        Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4) };
-        IEngine engine = new SimulationEngine(directions, map, positions);
-        engine.run();
-        out.println(map);
-        out.println("Stop");
+        try {
+            out.println("Start");
+            MoveDirection[] directions = OptionsParser.parse(args);
+            AbstractWorldMap map = new GrassField(10);
+            Vector2d[] positions = {new Vector2d(1, 1), new Vector2d(3, 4)};
+            IEngine engine = new SimulationEngine(directions, map, positions);
+            engine.run();
+            out.println(map);
+            out.println("Stop");
+        }
+        catch(IllegalArgumentException exception){
+            exception.printStackTrace();
+            out.println("koniec kropka");
+            exit(1);
+        }
     }
 
     public static MoveDirection[] toEnum(String [] args) {

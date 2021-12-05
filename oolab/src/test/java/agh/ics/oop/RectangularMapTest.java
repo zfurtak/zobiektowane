@@ -118,6 +118,7 @@ public class RectangularMapTest {
         Animal Bob = new Animal(field5, new Vector2d(1, 1));
         Animal Meredith = new Animal(field5, new Vector2d(2, 2));
         Animal Creed = new Animal(field5, new Vector2d(2,2 ));
+        Animal Erin = new Animal(field5, new Vector2d(1,1 ));
         field5.place(Bob);
         assertTrue(Bob.isAt(new Vector2d(1, 1)));
 
@@ -125,9 +126,9 @@ public class RectangularMapTest {
         assertTrue(Meredith.isAt(new Vector2d(2, 2)));
 
         //sprawdzam czy da się położyć zwierzaka na innym
-        field5.place(Creed);
-        assertFalse(Creed.isAt(new Vector2d(1, 1)));
-
+        assertThrows(IllegalArgumentException.class, () -> field5.place(Creed));
+        assertThrows(IllegalArgumentException.class, () -> field5.place(Erin));
+        
 
     }
 

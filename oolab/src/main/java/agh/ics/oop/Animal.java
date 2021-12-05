@@ -8,7 +8,7 @@ import java.util.Observer;
 public class Animal extends AbstractWorldMapElement{
     private MapDirection orient = MapDirection.NORTH;
     private final AbstractWorldMap map;
-    private final List<IPositionChangeObserver> observers = new ArrayList<>();
+
 
 
     public Animal(AbstractWorldMap map, Vector2d initialPosition) {
@@ -44,11 +44,5 @@ public class Animal extends AbstractWorldMapElement{
             }
         }
     }
-    public void addObserver(IPositionChangeObserver observer){
-        observers.add(observer);
-    }
 
-    void removeObserver(IPositionChangeObserver observer){
-        observers.remove(observer);
-    }
 }

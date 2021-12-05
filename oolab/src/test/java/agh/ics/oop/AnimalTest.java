@@ -1,4 +1,4 @@
-/*package agh.ics.oop;
+package agh.ics.oop;
 
 import org.junit.jupiter.api.Test;
 
@@ -7,24 +7,23 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AnimalTest {
-    Animal Bob = new Animal();
-    Animal Mike = new Animal();
+    private final AbstractWorldMap map = new RectangularMap(5, 5);
+    Animal Bob = new Animal(map, new Vector2d(1,1));
+    Animal Mike = new Animal(map, new Vector2d(2,2));
+
     @Test
     void everythingTest(){
-        String[] lista = new String[] {"f", "forward", "right", "r", "terefere"};
+        String[] lista = new String[] {"f", "forward", "right", "r"};
         MoveDirection[] kierunki = new OptionsParser().parse(lista);
         for(MoveDirection arg : kierunki){Bob.move(arg);}
-        assertEquals(2, Bob.getPosition().x);
-        assertEquals(4, Bob.getPosition().y);
+        assertEquals(new Vector2d(1,3), Bob.getPosition());
         assertEquals(MapDirection.SOUTH, Bob.getOrient());
 
-        String[] lista1 = new String[] {"b", "b", "backward", "l", "f", "l"};
-        MoveDirection[] kierunki1 = new OptionsParser().parse(lista1));
+        String[] lista1 = new String[] {"b", "backward", "l" };
+        MoveDirection[] kierunki1 = new OptionsParser().parse(lista1);
         for(MoveDirection arg : kierunki1){Mike.move(arg);}
-        assertEquals(1, Mike.getPosition().x);
-        assertEquals(0, Mike.getPosition().y);
-        assertEquals(MapDirection.SOUTH, Mike.getOrient());
+        assertEquals(new Vector2d(2,0), Mike.getPosition());
+        assertEquals(MapDirection.WEST, Mike.getOrient());
 
     }
 }
-*/
