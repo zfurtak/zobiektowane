@@ -25,3 +25,4 @@ public class OptionsParserTest {
         assertDoesNotThrow(() -> OptionsParser.parse(args4));
     }
 }
+

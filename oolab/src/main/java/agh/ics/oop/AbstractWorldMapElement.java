@@ -30,3 +30,4 @@ public class AbstractWorldMapElement implements IMapElement{
         observers.remove(observer);
     }
 }
+

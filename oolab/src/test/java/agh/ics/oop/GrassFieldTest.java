@@ -110,7 +110,7 @@ public class GrassFieldTest {
             if(map1.charAt(i) == '*')
                 grassCnt ++;
         }
-        assertTrue(grassCnt == 10);
+        assertEquals(10, grassCnt);
 
         GrassField field5 = new GrassField(25);
         String map2 = field5.toString();
@@ -119,7 +119,7 @@ public class GrassFieldTest {
             if(map2.charAt(i) == '*')
                 grassCnt ++;
         }
-        assertTrue(grassCnt == 25);
+        assertEquals(25, grassCnt);
     }
 
     @Test
@@ -156,4 +156,5 @@ public class GrassFieldTest {
         assertEquals(new Vector2d(-10,-10), field10.findingLowerCorner());
     }
 }
+
 
