@@ -25,15 +25,5 @@ public class MapBoundary implements IPositionChangeObserver{
         yCoord.add(newPos);
     }
 
-    Vector2d findingUpperCorner() {
-        if (xCoord.isEmpty())
-            return new Vector2d(0, 0);
-        return new Vector2d(xCoord.last().x, yCoord.last().y);
-    }
 
-    Vector2d findingLowerCorner(){
-        if(xCoord.isEmpty())
-            return new Vector2d(0, 0);
-        return new Vector2d (xCoord.first().x, yCoord.first().y);
-    }
 }

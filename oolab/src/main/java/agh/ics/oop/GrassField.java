@@ -23,7 +23,7 @@ public class GrassField extends AbstractWorldMap {
             }
             Grass kempka = new Grass(grassPosition);
             natures.put(grassPosition, kempka);
-            boundaryMap.positionChanged(new Vector2d(0, 0), grassPosition);
+            boundaryMap.positionChanged(new Vector2d(999, 999), grassPosition);
             kempka.addObserver(boundaryMap);
         }
     }
@@ -37,22 +37,16 @@ public class GrassField extends AbstractWorldMap {
     }
 
 
-    Vector2d findingUpperCorner(){
-        Vector2d rightUpCorner = new Vector2d((int) (-2*Math.pow(10,9)), (int) (-2*Math.pow(10,9)));
-
-        for(Vector2d key : natures.keySet()){
-            rightUpCorner = rightUpCorner.upperRight(key);
-        }
-        return rightUpCorner;
+    public Vector2d findingUpperCorner() {
+        if (boundaryMap.xCoord.isEmpty())
+            return new Vector2d(0, 0);
+        return new Vector2d(boundaryMap.xCoord.last().x, boundaryMap.yCoord.last().y);
     }
 
-    Vector2d findingLowerCorner(){
-        Vector2d leftDownCorner = new Vector2d((int) (2*Math.pow(10,9)), (int) (2*Math.pow(10,9)));
-
-        for(Vector2d key : natures.keySet()){
-            leftDownCorner = leftDownCorner.lowerLeft(key);
-        }
-        return leftDownCorner;
+    public Vector2d findingLowerCorner(){
+        if(boundaryMap.xCoord.isEmpty())
+            return new Vector2d(0, 0);
+        return new Vector2d (boundaryMap.xCoord.first().x, boundaryMap.yCoord.first().y);
     }
 }
 

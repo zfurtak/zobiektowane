@@ -17,10 +17,10 @@ public enum MapDirection {
 
     public String shortString(){
         return switch (this){
-            case NORTH -> "N";
-            case SOUTH -> "S";
-            case EAST -> "E";
-            case WEST -> "W";
+            case NORTH -> "^";
+            case SOUTH -> "v";
+            case EAST -> ">";
+            case WEST -> "<";
         };
     }
 

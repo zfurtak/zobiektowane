@@ -16,9 +16,9 @@ public class Animal extends AbstractWorldMapElement{
         this.map = map;
     }
 
-    public String toString(){
+    /*public String toString(){
         return this.orient.shortString();
-    }
+    }*/
 
     public MapDirection getOrient() {
         return this.orient;
@@ -31,15 +31,17 @@ public class Animal extends AbstractWorldMapElement{
             case FORWARD -> {
                 Vector2d newPosition = this.position.add(this.orient.toUnitVector());
                 if (this.map.canMoveTo(newPosition)){
-                    map.positionChanged(this.position, newPosition);
+                    //map.positionChanged(this.position, newPosition);
+                    notify(this.position, newPosition);
                     this.position = newPosition;
                 }
             }
             case BACKWARD -> {
                 Vector2d newPosition = this.position.subtract(this.orient.toUnitVector());
                 if (this.map.canMoveTo(newPosition)){
+                    notify(this.position, newPosition);
+                    //map.positionChanged(this.position, newPosition);
                     this.position = newPosition;
-                    map.positionChanged(this.position, newPosition);
                 }
             }
         }

@@ -18,12 +18,12 @@ public class RectangularMap extends AbstractWorldMap{
     }
 
     @Override
-    Vector2d findingUpperCorner() {
+    public Vector2d findingUpperCorner() {
         return rightUpCorner;
     }
 
     @Override
-    Vector2d findingLowerCorner() {
+    public Vector2d findingLowerCorner() {
         return leftDownCorner;
     }
 }

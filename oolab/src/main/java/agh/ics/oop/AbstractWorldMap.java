@@ -3,24 +3,24 @@ package agh.ics.oop;
 import java.util.LinkedHashMap;
 
 
-abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObserver{
+public abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObserver{
     protected LinkedHashMap<Vector2d, AbstractWorldMapElement> natures = new LinkedHashMap<>();
     protected final MapBoundary boundaryMap = new MapBoundary();
 
 
-    abstract Vector2d findingUpperCorner();
+    abstract public Vector2d findingUpperCorner();
 
-    abstract Vector2d findingLowerCorner();
+    abstract public Vector2d findingLowerCorner();
 
     public String toString() {
         MapVisualizer mapVisualizer = new MapVisualizer(this);
-        return mapVisualizer.draw(boundaryMap.findingLowerCorner(), boundaryMap.findingUpperCorner());
+        return mapVisualizer.draw(findingLowerCorner(), findingUpperCorner());
     }
 
-    public void positionChanged(Vector2d oldPosition, Vector2d newPosition){
-        AbstractWorldMapElement jim = this.natures.get(oldPosition);
-        this.natures.remove(oldPosition);
-        this.natures.put(newPosition, jim);
+    public void positionChanged(Vector2d oldPos, Vector2d newPos){
+        AbstractWorldMapElement jim = this.natures.get(oldPos);
+        this.natures.remove(oldPos);
+        this.natures.put(newPos, jim);
     }
 
     public boolean canMoveTo(Vector2d position) {
@@ -31,7 +31,7 @@ abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObserver{
     public boolean place(Animal animal) {
         if (canMoveTo(animal.getPosition())) {
             this.natures.put(animal.getPosition(), animal);
-            boundaryMap.positionChanged(new Vector2d(0,0), animal.getPosition());
+            boundaryMap.positionChanged(new Vector2d(9999,9999), animal.getPosition());
             animal.addObserver(this);
             animal.addObserver(boundaryMap);
             return true;

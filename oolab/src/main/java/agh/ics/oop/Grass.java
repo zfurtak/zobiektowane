@@ -6,8 +6,8 @@ public class Grass extends AbstractWorldMapElement{
         this.position = pos;
     }
 
-    public String toString(){
-        return "*";
-    }
+    /*public String toString(){
+       return "*";
+    }*/
 
 }
