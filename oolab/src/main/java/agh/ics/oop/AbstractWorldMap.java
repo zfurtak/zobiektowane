@@ -17,6 +17,14 @@ public abstract class AbstractWorldMap implements IWorldMap, IPositionChangeObse
         return mapVisualizer.draw(findingLowerCorner(), findingUpperCorner());
     }
 
+    public AbstractWorldMapElement getElement(Vector2d pos){
+        return this.natures.get(pos);
+    }
+
+    public LinkedHashMap<Vector2d, AbstractWorldMapElement> getAnimals(){
+        return this.natures;
+    }
+
     public void positionChanged(Vector2d oldPos, Vector2d newPos){
         AbstractWorldMapElement jim = this.natures.get(oldPos);
         this.natures.remove(oldPos);
