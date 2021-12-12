@@ -16,9 +16,6 @@ public class Animal extends AbstractWorldMapElement{
         this.map = map;
     }
 
-    /*public String toString(){
-        return this.orient.shortString();
-    }*/
 
     public MapDirection getOrient() {
         return this.orient;
@@ -31,7 +28,6 @@ public class Animal extends AbstractWorldMapElement{
             case FORWARD -> {
                 Vector2d newPosition = this.position.add(this.orient.toUnitVector());
                 if (this.map.canMoveTo(newPosition)){
-                    //map.positionChanged(this.position, newPosition);
                     notify(this.position, newPosition);
                     this.position = newPosition;
                 }
@@ -40,11 +36,19 @@ public class Animal extends AbstractWorldMapElement{
                 Vector2d newPosition = this.position.subtract(this.orient.toUnitVector());
                 if (this.map.canMoveTo(newPosition)){
                     notify(this.position, newPosition);
-                    //map.positionChanged(this.position, newPosition);
                     this.position = newPosition;
                 }
             }
         }
     }
 
+    @Override
+    public String getPath() {
+        return switch (((Animal) this).getOrient()){
+            case NORTH -> "src/main/resources/up_doggo.png";
+            case SOUTH -> "src/main/resources/down_doggo.png";
+            case EAST -> "src/main/resources/right_doggo.png";
+            case WEST -> "src/main/resources/left_doggo.png";
+        };
+    }
 }

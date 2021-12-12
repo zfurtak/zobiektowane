@@ -17,6 +17,8 @@ public abstract class AbstractWorldMapElement implements IMapElement{
         return this.position.equals(pos);
     }
 
+    abstract public String getPath();
+
     @Override
     public Vector2d getPosition() {
         return this.position;

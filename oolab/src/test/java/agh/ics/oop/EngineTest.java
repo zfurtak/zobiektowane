@@ -14,7 +14,8 @@ public class EngineTest {
         String[] args = new String[] {"forward", "f", "right", "r", "left"};
         MoveDirection[] directions = OptionsParser.parse(args);
         Vector2d[] positions1 = new Vector2d[] {new Vector2d(0,0), new Vector2d(1,1) };
-        SimulationEngine engine = new SimulationEngine(directions, this.map, positions1);
+        SimulationEngine engine = new SimulationEngine(this.map, positions1, 100);
+        engine.getMoves(directions);
         Animal animal1 = (Animal) this.map.objectAt(new Vector2d(0,0));
         Animal animal2 = (Animal) this.map.objectAt(new Vector2d(1,1));
         engine.run();
@@ -29,7 +30,8 @@ public class EngineTest {
         String[] args = new String[] {"f", "forward", "right", "l", "r", "right"};
         MoveDirection[] directions = OptionsParser.parse(args);
         Vector2d[] positions2 = new Vector2d[] {new Vector2d(0,0), new Vector2d(1,1), new Vector2d(2,2) };
-        SimulationEngine engine = new SimulationEngine(directions, this.map, positions2);
+        SimulationEngine engine = new SimulationEngine(this.map, positions2, 100);
+        engine.getMoves(directions);
         Animal animal1 = (Animal) this.map.objectAt(new Vector2d(0,0));
         Animal animal2 = (Animal) this.map.objectAt(new Vector2d(1,1));
         Animal animal3 = (Animal) this.map.objectAt(new Vector2d(2,2));
@@ -46,7 +48,8 @@ public class EngineTest {
         String[] args = new String[] {"f", "forward", "f", "l", "f"};
         MoveDirection[] directions = OptionsParser.parse(args);
         Vector2d[] positions3 = new Vector2d[] {new Vector2d(0,0), new Vector2d(0,1) };
-        SimulationEngine engine = new SimulationEngine(directions, this.map, positions3);
+        SimulationEngine engine = new SimulationEngine(this.map, positions3, 100);
+        engine.getMoves(directions);
         Animal animal1 = (Animal) this.map.objectAt(new Vector2d(0,0));
         Animal animal2 = (Animal) this.map.objectAt(new Vector2d(0,1));
         engine.run();
